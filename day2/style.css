@@ -1,0 +1,160 @@
+/* 1. Global Box-Sizing Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+        background-color: #f4f6f8;
+          color: #333333;
+            line-height: 1.6;
+            }
+
+            /* 2. Header & Flexbox Navigation */
+            header {
+              background-color: #1e293b;
+                color: #ffffff;
+                  padding: 2rem 1rem;
+                    text-align: center;
+                    }
+
+                    header h1 {
+                      margin: 0 0 0.5rem 0;
+                      }
+
+                      header p {
+                        margin: 0 0 1.5rem 0;
+                          color: #cbd5e1;
+                          }
+
+                          nav {
+                            display: flex;
+                              justify-content: center;
+                                align-items: center;
+                                  gap: 16px;
+                                  }
+
+                                  nav a {
+                                    color: #ffffff;
+                                      text-decoration: none;
+                                        font-weight: bold;
+                                          padding: 0.5rem 1rem;
+                                            border-radius: 4px;
+                                              transition: background-color 0.3s ease, color 0.3s ease;
+                                              }
+
+                                              nav a:hover {
+                                                background-color: #334155;
+                                                  color: #38bdf8;
+                                                  }
+
+                                                  /* 3. Main Layout & Card Section Styling */
+                                                  main {
+                                                    max-width: 800px;
+                                                      margin: 2rem auto;
+                                                        padding: 0 1rem;
+                                                        }
+
+                                                        main section {
+                                                          background-color: #ffffff;
+                                                            padding: 1.5rem;
+                                                              margin-bottom: 1.5rem;
+                                                                border-radius: 8px;
+                                                                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+                                                                  }
+
+                                                                  /* 4. Features CSS Grid Cards */
+                                                                  ul.features {
+                                                                    display: grid;
+                                                                      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                                                                        gap: 1rem;
+                                                                          list-style: none;
+                                                                            padding: 0;
+                                                                            }
+
+                                                                            ul.features li {
+                                                                              background-color: #f8fafc;
+                                                                                border: 1px solid #e2e8f0;
+                                                                                  padding: 1rem;
+                                                                                    border-radius: 6px;
+                                                                                      font-weight: 500;
+                                                                                      }
+
+                                                                                      /* 5. Shortcuts Table Styling */
+                                                                                      table {
+                                                                                        width: 100%;
+                                                                                          border-collapse: collapse;
+                                                                                            margin-top: 1rem;
+                                                                                            }
+
+                                                                                            th, td {
+                                                                                              border: 1px solid #cbd5e1;
+                                                                                                padding: 0.75rem;
+                                                                                                  text-align: left;
+                                                                                                  }
+
+                                                                                                  th {
+                                                                                                    background-color: #f1f5f9;
+                                                                                                    }
+
+                                                                                                    /* 6. Feedback Form Styling */
+                                                                                                    form div {
+                                                                                                      margin-bottom: 1rem;
+                                                                                                      }
+
+                                                                                                      label {
+                                                                                                        display: block;
+                                                                                                          margin-bottom: 0.5rem;
+                                                                                                            font-weight: bold;
+                                                                                                            }
+
+                                                                                                            input[type="text"],
+                                                                                                            input[type="email"],
+                                                                                                            textarea {
+                                                                                                              width: 100%;
+                                                                                                                padding: 0.75rem;
+                                                                                                                  border: 1px solid #cbd5e1;
+                                                                                                                    border-radius: 4px;
+                                                                                                                      font-size: 1rem;
+                                                                                                                      }
+
+                                                                                                                      textarea {
+                                                                                                                        resize: vertical;
+                                                                                                                          min-height: 100px;
+                                                                                                                          }
+
+                                                                                                                          button[type="submit"] {
+                                                                                                                            background-color: #2563eb;
+                                                                                                                              color: #ffffff;
+                                                                                                                                border: none;
+                                                                                                                                  padding: 0.75rem 1.5rem;
+                                                                                                                                    font-size: 1rem;
+                                                                                                                                      border-radius: 4px;
+                                                                                                                                        cursor: pointer;
+                                                                                                                                          transition: background-color 0.3s ease;
+                                                                                                                                          }
+
+                                                                                                                                          button[type="submit"]:hover {
+                                                                                                                                            background-color: #1d4ed8;
+                                                                                                                                            }
+
+                                                                                                                                            /* 7. Footer */
+                                                                                                                                            footer {
+                                                                                                                                              text-align: center;
+                                                                                                                                                padding: 1.5rem 1rem;
+                                                                                                                                                  color: #64748b;
+                                                                                                                                                    font-size: 0.9rem;
+                                                                                                                                                    }
+
+                                                                                                                                                    /* 8. Media Query for Small Screens */
+                                                                                                                                                    @media (max-width: 600px) {
+                                                                                                                                                      header {
+                                                                                                                                                          padding: 1rem 0.5rem;
+                                                                                                                                                            }
+
+                                                                                                                                                              header h1 {
+                                                                                                                                                                  font-size: 1.5rem;
+                                                                                                                                                                    }
+                                                                                                                                                                    }
+                                                                                                                                                                    
