@@ -1,160 +1,252 @@
-/* 1. Global Box-Sizing Reset & Base Styles */
-*, *::before, *::after {
-  box-sizing: border-box;
-  }
+/* ==========================================================================
+   1. Reset & Global Styles
+      ========================================================================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        }
 
-  body {
-    margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-        background-color: #f4f6f8;
-          color: #333333;
-            line-height: 1.6;
-            }
-
-            /* 2. Header & Flexbox Navigation */
-            header {
-              background-color: #1e293b;
-                color: #ffffff;
-                  padding: 2rem 1rem;
-                    text-align: center;
+        body {
+          margin: 0;
+            padding: 0;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+                background-color: #f1f5f9;
+                  color: #1e293b;
+                    line-height: 1.6;
                     }
 
-                    header h1 {
-                      margin: 0 0 0.5rem 0;
-                      }
+                    /* ==========================================================================
+                       2. Header & Flexbox Navigation
+                          ========================================================================== */
+                          header {
+                            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+                              color: #ffffff;
+                                padding: 2.5rem 1rem;
+                                  text-align: center;
+                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                                    }
 
-                      header p {
-                        margin: 0 0 1.5rem 0;
-                          color: #cbd5e1;
-                          }
+                                    header h1 {
+                                      margin: 0 0 0.5rem 0;
+                                        font-size: 2.25rem;
+                                          font-weight: 700;
+                                            letter-spacing: -0.025em;
+                                            }
 
-                          nav {
-                            display: flex;
-                              justify-content: center;
-                                align-items: center;
-                                  gap: 16px;
-                                  }
-
-                                  nav a {
-                                    color: #ffffff;
-                                      text-decoration: none;
-                                        font-weight: bold;
-                                          padding: 0.5rem 1rem;
-                                            border-radius: 4px;
-                                              transition: background-color 0.3s ease, color 0.3s ease;
-                                              }
-
-                                              nav a:hover {
-                                                background-color: #334155;
-                                                  color: #38bdf8;
+                                            header p {
+                                              margin: 0 0 1.5rem 0;
+                                                color: #94a3b8;
+                                                  font-size: 1.05rem;
                                                   }
 
-                                                  /* 3. Main Layout & Card Section Styling */
-                                                  main {
-                                                    max-width: 800px;
-                                                      margin: 2rem auto;
-                                                        padding: 0 1rem;
-                                                        }
+                                                  /* Navigation bar laid out in a row using Flexbox */
+                                                  nav {
+                                                    display: flex;
+                                                      justify-content: center;
+                                                        align-items: center;
+                                                          gap: 16px;
+                                                          }
 
-                                                        main section {
-                                                          background-color: #ffffff;
-                                                            padding: 1.5rem;
-                                                              margin-bottom: 1.5rem;
-                                                                border-radius: 8px;
-                                                                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-                                                                  }
+                                                          nav a {
+                                                            color: #ffffff;
+                                                              text-decoration: none;
+                                                                font-weight: 600;
+                                                                  padding: 0.5rem 1.25rem;
+                                                                    border-radius: 6px;
+                                                                      background-color: rgba(255, 255, 255, 0.05);
+                                                                        border: 1px solid rgba(255, 255, 255, 0.1);
+                                                                          transition: all 0.25s ease-in-out;
+                                                                          }
 
-                                                                  /* 4. Features CSS Grid Cards */
-                                                                  ul.features {
-                                                                    display: grid;
-                                                                      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                                                                        gap: 1rem;
-                                                                          list-style: none;
-                                                                            padding: 0;
-                                                                            }
+                                                                          nav a:hover {
+                                                                            background-color: #38bdf8;
+                                                                              color: #0f172a;
+                                                                                border-color: #38bdf8;
+                                                                                  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+                                                                                  }
 
-                                                                            ul.features li {
-                                                                              background-color: #f8fafc;
-                                                                                border: 1px solid #e2e8f0;
-                                                                                  padding: 1rem;
-                                                                                    border-radius: 6px;
-                                                                                      font-weight: 500;
-                                                                                      }
+                                                                                  /* ==========================================================================
+                                                                                     3. Main Layout & Section Cards
+                                                                                        ========================================================================== */
+                                                                                        main {
+                                                                                          max-width: 800px;
+                                                                                            margin: 2.5rem auto;
+                                                                                              padding: 0 1.25rem;
+                                                                                              }
 
-                                                                                      /* 5. Shortcuts Table Styling */
-                                                                                      table {
-                                                                                        width: 100%;
-                                                                                          border-collapse: collapse;
-                                                                                            margin-top: 1rem;
-                                                                                            }
+                                                                                              /* Gives each section a clean white card look */
+                                                                                              main section {
+                                                                                                background-color: #ffffff;
+                                                                                                  padding: 1.75rem;
+                                                                                                    margin-bottom: 2rem;
+                                                                                                      border-radius: 12px;
+                                                                                                        border: 1px solid #e2e8f0;
+                                                                                                          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+                                                                                                          }
 
-                                                                                            th, td {
-                                                                                              border: 1px solid #cbd5e1;
-                                                                                                padding: 0.75rem;
-                                                                                                  text-align: left;
-                                                                                                  }
+                                                                                                          main h2, 
+                                                                                                          main h3 {
+                                                                                                            color: #0f172a;
+                                                                                                              margin-top: 0;
+                                                                                                                margin-bottom: 1rem;
+                                                                                                                }
 
-                                                                                                  th {
-                                                                                                    background-color: #f1f5f9;
-                                                                                                    }
+                                                                                                                /* ==========================================================================
+                                                                                                                   4. Features CSS Grid Layout
+                                                                                                                      ========================================================================== */
+                                                                                                                      ul.features {
+                                                                                                                        display: grid;
+                                                                                                                          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                                                                                                                            gap: 1.25rem;
+                                                                                                                              list-style: none;
+                                                                                                                                padding: 0;
+                                                                                                                                  margin: 1rem 0 0 0;
+                                                                                                                                  }
 
-                                                                                                    /* 6. Feedback Form Styling */
-                                                                                                    form div {
-                                                                                                      margin-bottom: 1rem;
-                                                                                                      }
+                                                                                                                                  ul.features li {
+                                                                                                                                    background-color: #f8fafc;
+                                                                                                                                      border: 1px solid #cbd5e1;
+                                                                                                                                        padding: 1.25rem;
+                                                                                                                                          border-radius: 8px;
+                                                                                                                                            font-weight: 600;
+                                                                                                                                              color: #334155;
+                                                                                                                                                text-align: center;
+                                                                                                                                                  transition: transform 0.2s ease, box-shadow 0.2s ease;
+                                                                                                                                                  }
 
-                                                                                                      label {
-                                                                                                        display: block;
-                                                                                                          margin-bottom: 0.5rem;
-                                                                                                            font-weight: bold;
-                                                                                                            }
+                                                                                                                                                  ul.features li:hover {
+                                                                                                                                                    transform: translateY(-2px);
+                                                                                                                                                      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                                                                                                                                                      }
 
-                                                                                                            input[type="text"],
-                                                                                                            input[type="email"],
-                                                                                                            textarea {
-                                                                                                              width: 100%;
-                                                                                                                padding: 0.75rem;
-                                                                                                                  border: 1px solid #cbd5e1;
-                                                                                                                    border-radius: 4px;
-                                                                                                                      font-size: 1rem;
-                                                                                                                      }
+                                                                                                                                                      /* ==========================================================================
+                                                                                                                                                         5. Keyboard Shortcuts Table
+                                                                                                                                                            ========================================================================== */
+                                                                                                                                                            table {
+                                                                                                                                                              width: 100%;
+                                                                                                                                                                border-collapse: collapse;
+                                                                                                                                                                  margin-top: 1rem;
+                                                                                                                                                                    overflow: hidden;
+                                                                                                                                                                      border-radius: 8px;
+                                                                                                                                                                        border: 1px solid #cbd5e1;
+                                                                                                                                                                        }
 
-                                                                                                                      textarea {
-                                                                                                                        resize: vertical;
-                                                                                                                          min-height: 100px;
-                                                                                                                          }
+                                                                                                                                                                        th, 
+                                                                                                                                                                        td {
+                                                                                                                                                                          border: 1px solid #cbd5e1;
+                                                                                                                                                                            padding: 0.875rem 1rem;
+                                                                                                                                                                              text-align: left;
+                                                                                                                                                                              }
 
-                                                                                                                          button[type="submit"] {
-                                                                                                                            background-color: #2563eb;
-                                                                                                                              color: #ffffff;
-                                                                                                                                border: none;
-                                                                                                                                  padding: 0.75rem 1.5rem;
-                                                                                                                                    font-size: 1rem;
-                                                                                                                                      border-radius: 4px;
-                                                                                                                                        cursor: pointer;
-                                                                                                                                          transition: background-color 0.3s ease;
-                                                                                                                                          }
+                                                                                                                                                                              th {
+                                                                                                                                                                                background-color: #f1f5f9;
+                                                                                                                                                                                  color: #0f172a;
+                                                                                                                                                                                    font-weight: 700;
+                                                                                                                                                                                    }
 
-                                                                                                                                          button[type="submit"]:hover {
-                                                                                                                                            background-color: #1d4ed8;
-                                                                                                                                            }
+                                                                                                                                                                                    tbody tr:nth-child(even) {
+                                                                                                                                                                                      background-color: #f8fafc;
+                                                                                                                                                                                      }
 
-                                                                                                                                            /* 7. Footer */
-                                                                                                                                            footer {
-                                                                                                                                              text-align: center;
-                                                                                                                                                padding: 1.5rem 1rem;
-                                                                                                                                                  color: #64748b;
-                                                                                                                                                    font-size: 0.9rem;
-                                                                                                                                                    }
+                                                                                                                                                                                      /* ==========================================================================
+                                                                                                                                                                                         6. Feedback Form Styling
+                                                                                                                                                                                            ========================================================================== */
+                                                                                                                                                                                            form div {
+                                                                                                                                                                                              margin-bottom: 1.25rem;
+                                                                                                                                                                                              }
 
-                                                                                                                                                    /* 8. Media Query for Small Screens */
-                                                                                                                                                    @media (max-width: 600px) {
-                                                                                                                                                      header {
-                                                                                                                                                          padding: 1rem 0.5rem;
-                                                                                                                                                            }
+                                                                                                                                                                                              label {
+                                                                                                                                                                                                display: block;
+                                                                                                                                                                                                  margin-bottom: 0.5rem;
+                                                                                                                                                                                                    font-weight: 600;
+                                                                                                                                                                                                      color: #334155;
+                                                                                                                                                                                                      }
 
-                                                                                                                                                              header h1 {
-                                                                                                                                                                  font-size: 1.5rem;
-                                                                                                                                                                    }
-                                                                                                                                                                    }
-                                                                                                                                                                    
+                                                                                                                                                                                                      input[type="text"],
+                                                                                                                                                                                                      input[type="email"],
+                                                                                                                                                                                                      textarea {
+                                                                                                                                                                                                        width: 100%;
+                                                                                                                                                                                                          padding: 0.75rem 1rem;
+                                                                                                                                                                                                            border: 1px solid #cbd5e1;
+                                                                                                                                                                                                              border-radius: 6px;
+                                                                                                                                                                                                                font-size: 1rem;
+                                                                                                                                                                                                                  font-family: inherit;
+                                                                                                                                                                                                                    background-color: #f8fafc;
+                                                                                                                                                                                                                      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+                                                                                                                                                                                                                      }
+
+                                                                                                                                                                                                                      input[type="text"]:focus,
+                                                                                                                                                                                                                      input[type="email"]:focus,
+                                                                                                                                                                                                                      textarea:focus {
+                                                                                                                                                                                                                        outline: none;
+                                                                                                                                                                                                                          border-color: #2563eb;
+                                                                                                                                                                                                                            background-color: #ffffff;
+                                                                                                                                                                                                                              box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+                                                                                                                                                                                                                              }
+
+                                                                                                                                                                                                                              textarea {
+                                                                                                                                                                                                                                resize: vertical;
+                                                                                                                                                                                                                                  min-height: 120px;
+                                                                                                                                                                                                                                  }
+
+                                                                                                                                                                                                                                  /* Button with hover transition */
+                                                                                                                                                                                                                                  button[type="submit"] {
+                                                                                                                                                                                                                                    background-color: #2563eb;
+                                                                                                                                                                                                                                      color: #ffffff;
+                                                                                                                                                                                                                                        border: none;
+                                                                                                                                                                                                                                          padding: 0.875rem 1.75rem;
+                                                                                                                                                                                                                                            font-size: 1rem;
+                                                                                                                                                                                                                                              font-weight: 600;
+                                                                                                                                                                                                                                                border-radius: 6px;
+                                                                                                                                                                                                                                                  cursor: pointer;
+                                                                                                                                                                                                                                                    transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                    button[type="submit"]:hover {
+                                                                                                                                                                                                                                                      background-color: #1d4ed8;
+                                                                                                                                                                                                                                                        transform: translateY(-1px);
+                                                                                                                                                                                                                                                          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+                                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                                          button[type="submit"]:active {
+                                                                                                                                                                                                                                                            transform: translateY(0);
+                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                            /* ==========================================================================
+                                                                                                                                                                                                                                                               7. Footer
+                                                                                                                                                                                                                                                                  ========================================================================== */
+                                                                                                                                                                                                                                                                  footer {
+                                                                                                                                                                                                                                                                    text-align: center;
+                                                                                                                                                                                                                                                                      padding: 2rem 1rem;
+                                                                                                                                                                                                                                                                        color: #64748b;
+                                                                                                                                                                                                                                                                          font-size: 0.9rem;
+                                                                                                                                                                                                                                                                          }
+
+                                                                                                                                                                                                                                                                          /* ==========================================================================
+                                                                                                                                                                                                                                                                             8. Media Queries for Mobile Screens
+                                                                                                                                                                                                                                                                                ========================================================================== */
+                                                                                                                                                                                                                                                                                @media (max-width: 600px) {
+                                                                                                                                                                                                                                                                                  header {
+                                                                                                                                                                                                                                                                                      padding: 1.5rem 0.75rem;
+                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                          header h1 {
+                                                                                                                                                                                                                                                                                              font-size: 1.65rem;
+                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                  header p {
+                                                                                                                                                                                                                                                                                                      font-size: 0.95rem;
+                                                                                                                                                                                                                                                                                                          margin-bottom: 1rem;
+                                                                                                                                                                                                                                                                                                            }
+
+                                                                                                                                                                                                                                                                                                              main {
+                                                                                                                                                                                                                                                                                                                  margin: 1.5rem auto;
+                                                                                                                                                                                                                                                                                                                      padding: 0 0.75rem;
+                                                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                                                          main section {
+                                                                                                                                                                                                                                                                                                                              padding: 1.25rem;
+                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                                                                
