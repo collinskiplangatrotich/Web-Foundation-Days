@@ -1,0 +1,125 @@
+/* CSS Variables for Light Mode */
+:root {
+  --bg-color: #f4f6f8;
+  --card-bg: #ffffff;
+  --text-color: #222222;
+  --border-color: #cccccc;
+  --button-bg: #1e3a8a;
+  --button-text: #ffffff;
+  --button-hover: #172554;
+  --clear-bg: #dc2626;
+  --clear-hover: #b91c1c;
+}
+
+/* CSS Variables for Dark Mode */
+body.dark {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --border-color: #444444;
+  --button-bg: #3b82f6;
+  --button-text: #ffffff;
+  --button-hover: #2563eb;
+  --clear-bg: #ef4444;
+  --clear-hover: #dc2626;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  max-width: 600px;
+  margin: 0 auto 16px auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 12px;
+  font: inherit;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: 2px solid var(--button-bg);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#theme-toggle {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+#theme-toggle:hover {
+  background-color: var(--button-hover);
+}
+
+#clear-btn {
+  background-color: var(--clear-bg);
+  color: #ffffff;
+}
+
+#clear-btn:hover {
+  background-color: var(--clear-hover);
+}
+
+/* Counter Alert Classes */
+.warning {
+  color: orange;
+}
+
+.over {
+  color: red;
+  font-weight: bold;
+}
