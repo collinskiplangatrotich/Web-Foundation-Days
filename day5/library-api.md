@@ -21,7 +21,7 @@ Documentation for managing the `books` resource in a library system.
 ### 3. Create Book
 - **Method**: `POST`
 - **Path**: `/books`
-- **Description**: Adds a new book entry to the library.
+- **Description**: Adds a new book entry to the library catalog.
 - **Request Body**:
   ```json
   {
