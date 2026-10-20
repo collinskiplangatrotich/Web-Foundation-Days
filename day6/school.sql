@@ -1,15 +1,22 @@
-```sql
+
 -- Day 6 Assignment: School Database (SQLite Compatible)
 
 -- Enable foreign key constraints in SQLite
 PRAGMA foreign_keys = ON;
 
 -- ============================================================================
+-- 0. DROP EXISTING TABLES (Prevents duplicate INSERT errors on re-runs)
+-- ============================================================================
+DROP TABLE IF EXISTS enrolments;
+DROP TABLE IF EXISTS courses;
+DROP TABLE IF EXISTS students;
+
+-- ============================================================================
 -- 1. CREATE TABLE STATEMENTS
 -- ============================================================================
 
 -- Students Table
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE students (
     student_id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
@@ -17,14 +24,14 @@ CREATE TABLE IF NOT EXISTS students (
 );
 
 -- Courses Table
-CREATE TABLE IF NOT EXISTS courses (
+CREATE TABLE courses (
     course_id INTEGER PRIMARY KEY AUTOINCREMENT,
     course_name TEXT NOT NULL,
     course_code TEXT NOT NULL UNIQUE
 );
 
 -- Enrolments Table (Junction Table for Many-to-Many Relationship)
-CREATE TABLE IF NOT EXISTS enrolments (
+CREATE TABLE enrolments (
     enrolment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id INTEGER NOT NULL,
     course_id INTEGER NOT NULL,
@@ -118,4 +125,3 @@ FROM enrolments e
 JOIN students s ON e.student_id = s.student_id
 JOIN courses c ON e.course_id = c.course_id
 WHERE s.email = 'brian.mwangi@example.com' AND c.course_code = 'AZ-900';
-```
