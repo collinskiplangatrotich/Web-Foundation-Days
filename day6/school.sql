@@ -125,3 +125,4 @@ FROM enrolments e
 JOIN students s ON e.student_id = s.student_id
 JOIN courses c ON e.course_id = c.course_id
 WHERE s.email = 'brian.mwangi@example.com' AND c.course_code = 'AZ-900';
+
