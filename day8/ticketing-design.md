@@ -14,7 +14,7 @@ This document details the end-to-end system design for **TicketHub**, an event t
 5. **Inventory & Order History:** Administrators and venue organizers can view ticket sales reports and manage event seating inventories.
 
 ### Non-Functional Requirements
-1. **Correctness (Zero Double-Booking Guarantee):** Under no circumstance can two users purchase or hold the exact same physical seat for an event ($100\%$ inventory isolation).
+1. **Correctness (Zero Double-Booking Guarantee):** Under no circumstance can two users purchase or hold the exact same physical seat for an event (100% inventory isolation).
 2. **Fairness (First-Come, First-Served under High Surge):** During high-demand sales, access to seat allocation must be processed in strict, deterministic queue order to prevent bot hoarding and race conditions.
 3. **Speed & Latency:**
    - Browsing/Read pages: Response times under **50 ms**.
@@ -30,43 +30,43 @@ This document details the end-to-end system design for **TicketHub**, an event t
 - **Registered Users:** 2,000,000
 - **Normal Day Traffic:** 50,000 daily active visitors (10 page views/user/day)
 - **Normal Day Sales:** 5,000 tickets sold/day
-- **Surge Sale ("Big Sale"):** 200,000 users attempting to purchase 20,000 available seats within the first **10 minutes** ($600 \text{ seconds}$).
+- **Surge Sale ("Big Sale"):** 200,000 users attempting to purchase 20,000 available seats within the first **10 minutes** (600 seconds).
 
 ---
 
 ### Normal Traffic Estimates
 
 #### Read Operations
-- **Total Daily Page Views:** $50,000 \times 10 = 500,000 \text{ page views/day}$
+- **Total Daily Page Views:** $50,000 \times 10 = 500,000\text{ page views/day}$
 - **Average Read QPS:** 
-  $$\text{Average Read QPS} = \frac{500,000}{86,400 \text{ seconds}} \approx \mathbf{5.79 \text{ QPS}}$$
+  $$\text{Average Read QPS} = \frac{500,000}{86,400\text{ seconds}} \approx 5.79\text{ QPS}$$
 - **Peak Read QPS ($5\times$ multiplier):**
-  $$\text{Peak Read QPS} = 5.79 \times 5 = \mathbf{28.93 \text{ QPS}}$$
+  $$\text{Peak Read QPS} = 5.79 \times 5 = 28.93\text{ QPS}$$
 
 #### Write Operations (Ticket Purchases)
-- **Total Daily Ticket Purchases:** $5,000 \text{ sales/day}$
+- **Total Daily Ticket Purchases:** $5,000\text{ sales/day}$
 - **Average Write QPS:**
-  $$\text{Average Write QPS} = \frac{5,000}{86,400 \text{ seconds}} \approx \mathbf{0.058 \text{ QPS}}$$
+  $$\text{Average Write QPS} = \frac{5,000}{86,400\text{ seconds}} \approx 0.058\text{ QPS}$$
 - **Peak Write QPS ($5\times$ multiplier):**
-  $$\text{Peak Write QPS} = 0.058 \times 5 = \mathbf{0.29 \text{ QPS}}$$
+  $$\text{Peak Write QPS} = 0.058 \times 5 = 0.29\text{ QPS}$$
 
 ---
 
 ### Surge Traffic ("Big Sale") Estimates
 
-When a popular concert goes on sale, 200,000 users flood the system in 10 minutes ($600 \text{ seconds}$).
+When a popular concert goes on sale, 200,000 users flood the system in 10 minutes (600 seconds).
 
 #### Surge Read & Search Traffic
-Assumptions: Each active user refreshes/queries event and seat status every 10 seconds during the surge window ($600 / 10 = 60 \text{ views/user}$).
-- **Total Surge Page Views:** $200,000 \times 60 = 12,000,000 \text{ requests / 10 mins}$
+Assumptions: Each active user refreshes/queries event and seat status every 10 seconds during the surge window ($600 / 10 = 60\text{ views/user}$).
+- **Total Surge Page Views:** $200,000 \times 60 = 12,000,000\text{ requests / 10 mins}$
 - **Surge Read QPS:**
-  $$\text{Surge Read QPS} = \frac{12,000,000}{600 \text{ seconds}} = \mathbf{20,000 \text{ QPS}}$$
+  $$\text{Surge Read QPS} = \frac{12,000,000}{600\text{ seconds}} = 20,000\text{ QPS}$$
 
 #### Surge Write & Reservation Attempts
 Assumptions: All 200,000 users attempt to place a seat hold within the first 10 minutes.
 - **Total Hold Attempts:** 200,000 attempts / 600 seconds
 - **Surge Write/Hold QPS:**
-  $$\text{Surge Write QPS} = \frac{200,000}{600 \text{ seconds}} = \mathbf{333.33 \text{ QPS}}$$
+  $$\text{Surge Write QPS} = \frac{200,000}{600\text{ seconds}} \approx 333.33\text{ QPS}$$
 
 ---
 
@@ -74,9 +74,9 @@ Assumptions: All 200,000 users attempt to place a seat hold within the first 10 
 
 | Metric | Normal Day Traffic | Surge "Big Sale" Traffic | Surge vs. Normal Ratio |
 | :--- | :--- | :--- | :--- |
-| **Active Users / Window** | 50,000 / day | 200,000 / 10 mins | **$\mathbf{\approx 576 \times}$ Traffic Rate Density** |
-| **Read Query QPS** | 5.79 QPS | 20,000 QPS | **$\mathbf{\approx 3,454 \times}$ Increase** |
-| **Write/Hold Attempt QPS** | 0.058 QPS | 333.33 QPS | **$\mathbf{\approx 5,747 \times}$ Increase** |
+| **Active Users / Window** | 50,000 / day | 200,000 / 10 mins | **$\approx 576\times$ Traffic Rate Density** |
+| **Read Query QPS** | 5.79 QPS | 20,000 QPS | **$\approx 3,454\times$ Increase** |
+| **Write/Hold Attempt QPS** | 0.058 QPS | 333.33 QPS | **$\approx 5,747\times$ Increase** |
 | **Inventory Capacity** | Steady | 20,000 total seats | 10 buyers per seat ratio |
 
 ---
@@ -337,7 +337,7 @@ COMMIT;
 
 ### Component Explanations & Surge Architecture Controls
 
-1. **Virtual Waiting Room (Queue Gatekeeper):** During a 200,000-user surge, traffic is redirected through a virtual queue. It admits only $1,000$ users per minute onto the checkout platform using cryptographic JWT entry tokens, shielding backend servers from crashing.
+1. **Virtual Waiting Room (Queue Gatekeeper):** During a 200,000-user surge, traffic is redirected through a virtual queue. It admits only 1,000 users per minute onto the checkout platform using cryptographic JWT entry tokens, shielding backend servers from crashing.
 2. **Cloudflare Edge CDN:** Caches global static assets and initial event details, serving 20,000 QPS read spikes away from origin infrastructure.
 3. **Application Load Balancer (ALB):** Distributes incoming authenticated requests across horizontally autoscaling application nodes.
 4. **Stateless App Nodes:** Executes authorization, validation, and transaction logic.
