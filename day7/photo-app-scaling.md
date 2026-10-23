@@ -141,3 +141,4 @@ Photo files (both original 2 MB images and 50 KB thumbnails) must be stored in *
    - *Trade-off:* By delegating thumbnail creation to an asynchronous queue and worker, photo uploads respond instantaneously to users. However, if a user immediately refreshes their feed right after posting, the thumbnail may temporarily show a loading placeholder until the background worker finishes processing.
 2. **Fan-Out on Write vs. Fan-Out on Read (Feed Generation):**
    - *Trade-off:* We utilize pre-computed user feeds pushed into Redis caches on upload (Fan-out on Write). This makes reading feed pages extremely fast and responsive for our 50:1 read-heavy workload, but increases write amplification and storage consumption whenever a user with many followers uploads a photo.
+   - 
